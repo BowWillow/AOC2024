@@ -21,14 +21,11 @@ the right list.
 
 Answer is 23150395
 
-
-
 '''
 from collections import defaultdict
 
-inputFile = 'Data/Day 1 InputTEMP.txt' 
+inputFile = '../Data/Day 1 InputTEMP.txt' 
 inputFile = '../Data/Day 1 Input.txt'
-
 
 leftList = list(); rightList = list()
 
@@ -37,6 +34,7 @@ def parseInput():
 
     for line in open(inputFile, 'r') :
         lineList = line.strip('\n').split(' ')
+        # save first and last element
         leftList.append(int(lineList[0]) )
         rightList.append(int(lineList[-1]) )
 
@@ -51,7 +49,7 @@ def doIt():
 
     # put right list into dict (value is # of times in list)
     # for each left list item tot+=rightDict[item]*item
-    rightDict = defaultdict(int)
+    rightDict = defaultdict(lambda:0)
     for right in rightList:
         rightDict[right]+=1
     pt2Total = 0
